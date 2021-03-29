@@ -1,0 +1,64 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+{% load static %}<!--should laways be represented when static files images and documents are used-->
+<div class="container text-center my-5 pt-5">
+
+<img src="{% static 'portfolio/WIN_20200829_19_39_55_Pro.jpg' %}" class="img-fluid" alt="this was an image">
+
+
+
+
+
+{% comment %} {% for project in projects%}
+<h2>{{ project.title }}</h2>
+<br>
+<img src="{{ project.image.url }}"><!--add .url at end always in src to give the image rightly-->
+<br>
+<p>{{ project.description }}</p>
+<br>
+{% if project.url %}
+<a href="{{ project.url }}"><h4>Link</h4></a>
+{% endif %}
+
+{% endfor %} {% endcomment %}
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4 my-5 py-5">
+{% for project in projects %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ project.image.url }}" class="card-img-top" alt="image">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+        <a href="{{ project.url }}">
+            <button type="button" class="btn btn-outline-dark">About Us</button>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
